@@ -41,8 +41,8 @@ class TestGenresService:
             genres_service.get_item(10)
 
     @pytest.mark.parametrize('page', [1, None], ids=['with page', 'without page'])
-    def test_get_genres(self, genres_dao_mock, genres_service, page):
+    def test_get_genres(self, page, genres_dao_mock, genres_service):
         genres = genres_service.get_all(page=page)
         assert len(genres) == 2
         assert genres == genres_dao_mock.get_all.return_value
-        genres_dao_mock.get_all.assert_called_with(page=page)
+        genres_dao_mock.get_all.assert_called_with(page)

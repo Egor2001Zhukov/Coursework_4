@@ -2,7 +2,7 @@ from flask_restx import Namespace, Resource
 
 from project.container import genre_service
 from project.setup.api.models import genre
-from project.setup.api.parsers import page_parser
+from project.setup.api.parsers import page_parser, status_parser
 
 api = Namespace('genres')
 
